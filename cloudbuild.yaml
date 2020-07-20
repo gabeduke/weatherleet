@@ -11,7 +11,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'level'
+      - 'weatherleet'
       - '--image'
       - 'gcr.io/leetcloud-173303/github.com/gabeduke/weatherleet:snapshot-$BRANCH_NAME'
       - '--region'
