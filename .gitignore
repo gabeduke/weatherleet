@@ -1,1 +1,11 @@
 .env
+# Compiled files
+*.tfstate
+*.backup
+*.tfstate.lock.info
+
+# logs
+*.log
+
+# Directories
+.terraform/

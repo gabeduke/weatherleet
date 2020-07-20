@@ -16,7 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"github.com/gabeduke/weatherleet/functions"
 	"github.com/go-zepto/zepto"
 	"github.com/gorilla/mux"
