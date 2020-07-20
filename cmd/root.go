@@ -24,12 +24,16 @@ import (
 	"os"
 )
 
-var weather *weatherleet.WeatherLeet
+var (
+	cfg     conf
+	weather *weatherleet.WeatherLeet
+)
 
 type conf struct {
 	OwmApiKey string `env:"OWM_API_KEY,required"`
 	Lat       string `env:"OWM_LAT" envDefault:"37.4978938"`
 	Lon       string `env:"OWM_LON" envDefault:"-77.5504773"`
+	Port      string `env:"PORT" envDefault:"8080"`
 }
 
 var rootCmd = &cobra.Command{
@@ -53,12 +57,12 @@ func init() {
 func initConfig() {
 	var err error
 
-	c := conf{}
-	if err := env.Parse(&c); err != nil {
+	cfg = conf{}
+	if err := env.Parse(&cfg); err != nil {
 		log.Fatal(err)
 	}
 
-	weather, err = weatherleet.New(c.OwmApiKey, c.Lat, c.Lon)
+	weather, err = weatherleet.New(cfg.OwmApiKey, cfg.Lat, cfg.Lon)
 	if err != nil {
 		log.Fatal(err)
 	}

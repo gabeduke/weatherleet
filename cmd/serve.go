@@ -16,6 +16,7 @@ limitations under the License.
 package cmd
 
 import (
+	"fmt"
 	"github.com/gabeduke/weatherleet/functions"
 	"github.com/go-zepto/zepto"
 	"github.com/gorilla/mux"
@@ -43,7 +44,8 @@ var serveCmd = &cobra.Command{
 		r.HandleFunc("/day", w.DailyWeather)
 
 		// Setup HTTP Server
-		z.SetupHTTP("0.0.0.0:8080", r)
+		addr := fmt.Sprintf(":%s", cfg.Port)
+		z.SetupHTTP(addr, r)
 
 		z.Start()
 	},

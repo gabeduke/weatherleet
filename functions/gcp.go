@@ -53,4 +53,3 @@ func (s *WeatherLeetServer) DailyWeather(w http.ResponseWriter, r *http.Request)
 
 	_, _ = fmt.Fprint(w, oc.String())
 }
-

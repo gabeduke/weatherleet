@@ -25,4 +25,6 @@ RUN apk add --no-cache ca-certificates
 COPY --from=builder /app/weatherleet /weatherleet
 
 # Run the web service on container startup.
+ENV PORT 8080
+EXPOSE 8080
 CMD ["/weatherleet", "serve"]
